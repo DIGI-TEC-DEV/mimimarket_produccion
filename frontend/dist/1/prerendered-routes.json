@@ -1,0 +1,20 @@
+{
+  "routes": {
+    "/": {},
+    "/admin": {},
+    "/admin/comprobantes": {},
+    "/admin/empleados": {},
+    "/admin/inventario": {},
+    "/admin/notacredito": {},
+    "/admin/productos": {},
+    "/admin/usuarios": {},
+    "/admin/ventas": {},
+    "/empleado": {},
+    "/empleado/comprobantes": {},
+    "/empleado/inventario": {},
+    "/empleado/notacredito": {},
+    "/empleado/productos": {},
+    "/empleado/ventas": {},
+    "/login": {}
+  }
+}

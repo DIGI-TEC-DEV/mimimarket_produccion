@@ -1,0 +1,7 @@
+{
+  "name": "1",
+  "version": "0.0.0",
+  "scripts": {
+    "serve": "node dist/1/server/server.mjs"
+  }
+}
