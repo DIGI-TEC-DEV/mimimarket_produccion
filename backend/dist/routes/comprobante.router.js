@@ -11,5 +11,5 @@ ComprobanteRouter.get('/:idComprobante', comprobante_controller_1.getComprobante
 ComprobanteRouter.put('/:idComprobante', comprobante_controller_1.updateComprobante); // Actualizar un comprobante por ID
 ComprobanteRouter.delete('/:idComprobante', comprobante_controller_1.deleteComprobante); // Eliminar un comprobante por ID
 ComprobanteRouter.get('/ultima-serie/:tipo', comprobante_controller_1.obtenerUltimaSerie); // ✅ Nueva ruta agregada
-ComprobanteRouter.get('/venta/:idVenta', comprobante_controller_1.getComprobanteventabyVentaID); // ✅ Nueva ruta agregada
+ComprobanteRouter.get('/venta/:idVenta', comprobante_controller_1.getComprobanteventabyVentaID); // ✅ Nueva ruta agregada 
 exports.default = ComprobanteRouter;

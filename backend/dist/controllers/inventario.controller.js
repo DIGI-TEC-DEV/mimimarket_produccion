@@ -109,12 +109,19 @@ const updateInventario = (req, res) => __awaiter(void 0, void 0, void 0, functio
             inventario.precio_compra = precio_compra;
         if (precio_venta)
             inventario.precio_venta = precio_venta;
-        if (stock)
+        // Actualizar el stock si se proporciona un valor no nulo o indefinido
+        if (stock !== undefined && stock !== null) {
             inventario.stock = stock;
+            // Si el stock es 0, cambiar el estado a "agotado"
+            if (stock === 0) {
+                inventario.estado = 'agotado';
+            }
+        }
         if (fecha_ingreso)
             inventario.fecha_ingreso = fecha_ingreso;
         if (estado)
             inventario.estado = estado;
+        // Guardar los cambios
         yield inventario.save();
         res.json({ msg: 'El inventario fue actualizado con éxito' });
     }
