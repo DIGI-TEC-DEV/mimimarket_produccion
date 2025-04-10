@@ -102,25 +102,22 @@ const updateInventario = (req, res) => __awaiter(void 0, void 0, void 0, functio
             res.status(404).json({ msg: `No existe un inventario con el id ${idInventario}` });
             return;
         }
-        // Actualizar el inventario con los campos proporcionados en la solicitud
+        // Actualizar los campos proporcionados
         if (id_producto)
             inventario.id_producto = id_producto;
         if (precio_compra)
             inventario.precio_compra = precio_compra;
         if (precio_venta)
             inventario.precio_venta = precio_venta;
-        // Actualizar el stock si se proporciona un valor no nulo o indefinido
+        // Actualizar stock y estado basado en su valor
         if (stock !== undefined && stock !== null) {
             inventario.stock = stock;
-            // Si el stock es 0, cambiar el estado a "agotado"
-            if (stock === 0) {
-                inventario.estado = 'agotado';
-            }
+            inventario.estado = stock > 0 ? 'disponible' : 'agotado';
         }
         if (fecha_ingreso)
             inventario.fecha_ingreso = fecha_ingreso;
-        if (estado)
-            inventario.estado = estado;
+        if (estado && stock === undefined)
+            inventario.estado = estado; // Solo actualizar manualmente si el stock no se modificó
         // Guardar los cambios
         yield inventario.save();
         res.json({ msg: 'El inventario fue actualizado con éxito' });
